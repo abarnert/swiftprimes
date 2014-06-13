@@ -1,6 +1,6 @@
 func primes(limit: Int) -> Int[] {
     var prime = Array(count: limit+1, repeatedValue: true)
-    prime[0] = false; prime[1] = false
+    prime[0...1] = [false, false]
     var primes = Int[]()
     for (i, isprime) in enumerate(prime) {
         if isprime {
@@ -24,10 +24,10 @@ func intifyarg1() -> Int? {
 }
 
 if let limit = intifyarg1() {
-    for prime in primes(limit) {
-	print("\(prime) ")
-    }
-    println("")
+    let result = " ".join(map(primes(limit)) { 
+        (var number) -> String in return number.description
+    })
+    println("\(result)")
 } else {
-    println("primes LIMIT")
+    println("\(C_ARGV[0]) LIMIT")
 }

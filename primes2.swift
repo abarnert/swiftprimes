@@ -1,5 +1,3 @@
-//func upto<T, U where T: Sequence, U: T.GeneratorType.Element: Comparable>(seq, limit): 
-
 func make_isprime() -> (Int -> Bool) {
     var memo = Int[]()
     func isprime(n: Int) -> Bool {
@@ -23,11 +21,10 @@ func intifyarg1() -> Int? {
 }
 
 if let limit = intifyarg1() {
-    let isprime = make_isprime()
     for prime in filter(2...limit, make_isprime()) {
-	print("\(prime) ")
+        print("\(prime) ")
     }
     println("")
 } else {
-    println("primes LIMIT")
+    println("\(C_ARGV[0]) LIMIT")
 }
